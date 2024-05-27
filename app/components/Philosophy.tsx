@@ -22,8 +22,8 @@ function Philosophy() {
           <BatteryFull className="inline" strokeWidth={"2.75px"} /> find
           strength
         </span>
-        . Champions of comfort, we craft innovation. We're not just shoes; we're
-        a commitment to your journey. Join us, and let's conquer the road ahead.
+        . Champions of comfort, we craft innovation. We&apos;re not just shoes; we're
+        a commitment to your journey. Join us, and let&apos;s conquer the road ahead.
         New Balance: Where every move matters.
       </p>
     </div>
