@@ -4,7 +4,7 @@ export default {
     title: 'Product Year of Release',
     fields: [
       {
-        name: 'name',
+        name: 'year',
         type: 'number',
         title: 'Year of Release',
       },

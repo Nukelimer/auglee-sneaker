@@ -4,7 +4,7 @@ import HeroSection from "./HeroSection";
 
 function Hero() {
   return (
-    <div className="lg:grid grid-cols-2 overflow-hidden">
+    <div className="lg:grid grid-cols-2">
       <div className="lg: lg:h-[680px]">
         <VideoPlayer />
       </div>

@@ -20,8 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`  ${pt_san.className} ${martian_mono.className}`}>
-        <Header />
+      <body className={` overflow-x-hidden  ${pt_san.className} ${martian_mono.className}`}>
+        {/* <Header /> */}
         {children}
       </body>
     </html>
