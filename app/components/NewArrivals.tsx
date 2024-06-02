@@ -1,13 +1,14 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { client } from "../lib/utils";
-import { simplifiedProducts } from "@/lib/simplifiedProduct";
+// import { simplifiedProducts } from "@/lib/simplifiedProduct";
 import Image from "next/image";
 import Link from "next/link";
 import { FcBusinessman, FcBusinesswoman } from "react-icons/fc";
 import { Baby } from "lucide-react";
+import { simplifiedProducts } from "@/lib/types";
 
 const getData = async () => {
-  const fetchArrivals = `*[_type == "shoes"][0...5]| order(_createAt desc){
+  const fetchArrivals = `*[_type == "shoes"][0...4]| order(_createAt desc){
 
     name,
     _id,
@@ -33,6 +34,8 @@ export default async function NewArrivals() {
   return (
     <div className="  md:grid md:grid-cols-3 gap-9 my-4 p-4">
       {data.map((product) => {
+        // console.log(product);
+
         return (
           <div className="" key={product._id}>
             <div className="">
@@ -45,35 +48,20 @@ export default async function NewArrivals() {
                   className="rounded-2xl shadow-lg"
                 />
 
-                <div className="absolute  left-5 bottom-2 flex space-x-6 justify-center">
-                  {/* <button className="bg-slate-100 border-black border px-6 py-2 rounded-3xl">
-                    Add to Cart
-                  </button> */}
+                <div className="absolute w-full px-4  bottom-2 flex space-x-6 justify-between">
                   <Link
-                    href={"/explore"}
-                    className="bg-transparent border border-black px-6 py-2 rounded-3xl">
-                    Explore
+                    href={`/product/${product.slug}`}
+                    className="bg-transparent hover:cursor-pointer border hover:bg-white hover:text-green-300 hover:border-green-300 border-black px-6 py-2 rounded-3xl">
+                    View Product
                   </Link>
-                  <div className="">
-                    {" "}
-                    {product.categoryName === "Female" && (
-                      <FcBusinesswoman size={30} />
-                    )}{" "}
-                  </div>
 
-                  <div className="">
-                    {" "}
-                    {product.categoryName === "Male" && (
-                      <FcBusinessman size={30} />
-                    )}{" "}
-                  </div>
-
-                  <div className="">
-                    {" "}
-                    {product.categoryName === "Kids" && (
-                      <Baby size={30} />
-                    )}{" "}
-                  </div>
+                  {product.categoryName === "Female" ? (
+                    <FcBusinesswoman size={30} />
+                  ) : product.categoryName == "Man" ? (
+                    <FcBusinessman size={30} />
+                  ) : (
+                    product.categoryName === "Kids" && <Baby size={30} />
+                  )}
                 </div>
               </div>
               <div className="mt-3 ">
@@ -81,7 +69,7 @@ export default async function NewArrivals() {
                   {product.name}
                 </h2>
                 <p className="text-xl text-neutral-400 font-medium">
-                  ₦{product.price.toLocaleString()}
+                  &#8358;{product.price.toLocaleString()}
                 </p>
               </div>
             </div>

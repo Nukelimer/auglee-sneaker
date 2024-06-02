@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` overflow-x-hidden  ${pt_san.className} ${martian_mono.className}`}>
-        {/* <Header /> */}
+        <Header />
         {children}
       </body>
     </html>
